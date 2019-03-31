@@ -1,0 +1,79 @@
+<include file="Public:head"/>
+<div class="main mainbg clearfix">
+  <div class=LrightM>
+    <div class=dqwz>
+      <img src="Public/images/d05.gif" width=10 height=11> 当前位置：<a href="__APP__/index/index">首页</a>&gt;<strong>请家教信息</strong>
+    </div>
+    <div class="flbor seacbg1">
+      <form method=post action="__APP__/index/mfsearch">
+        <input type="hidden" name="types" value="6"/>
+        <input class=seainput onclick="this.value=''" value="信息编号" size=10 type=text name="id">
+        <input class=qiujiao onclick="this.value=''" value="请输入求教学科" size=15 type=text name="teach_subject">
+        <select style="WIDTH: 80px" id=teach_place class=input_text name="teach_place">
+          <option selected value="">区域</option>
+          <option value="">无要求</option>
+          <option value=黄浦区>黄浦区</option>
+          <option value=徐汇区>徐汇区</option>
+          <option value=长宁区>长宁区</option>
+          <option value=静安区>静安区</option>
+          <option value=普陀区>普陀区</option>
+          <option value=虹口区>虹口区</option>
+          <option value=杨浦区>杨浦区</option>
+          <option value=闵行区>闵行区</option>
+          <option value=宝山区>宝山区</option>
+          <option value=嘉定区>嘉定区</option>
+          <option value=浦东新区>浦东新区</option>
+          <option value=金山区>金山区</option>
+          <option value=松江区>松江区</option>
+          <option value=青浦区>青浦区</option>
+          <option value=奉贤区>奉贤区</option>
+        </select>
+        <select style="WIDTH: 120px" id=select3 class=input_text name="gender">
+          <option selected value="">请选择学员性别</option>
+          <option value="">不限</option>
+          <option value=男>男</option>
+          <option value=女>女</option>
+        </select>
+        <select style="WIDTH: 100px" id=select3 class=input_text name="gender2">
+          <option selected value="">教员性别要求</option>
+          <option value="">不限</option>
+          <option value=男>男</option>
+          <option value=女>女</option>
+        </select>
+        <span class=seacbg1><input id=imageField3 src="Public/images/but.gif" type=image name=imageField3>
+				</span>
+      </form>
+    </div>
+    <div class=tit01>
+      <div class=Ptit01T1>
+        <img src="Public/images/d10.gif">
+        <h2>学员信息库 <span style="COLOR: red; FONT-SIZE: 12px; FONT-WEIGHT: lighter">（"√"为已经预约教员，但仍然可以网上预约。）</span></h2>
+      </div>
+      <div class=num>
+        {$page}
+      </div>
+      <ol class=line03>
+        <li class=lin02bg><u>订单号</u><em>学员性别</em><i>求教科目 </i><b>学员要求</b><em style="WIDTH: 18%">授课区域</em><i>发布时间</i><em>查看详情</em></li>
+        <volist name="jiajiao_info" id="vo">
+          <li><u><span style="COLOR: red; FONT-WEIGHT: lighter"><eq name="vo.ttedu_shifouyuyue" value="1">√</eq></span>{$vo.ttedu_id}</u>
+            <em>&nbsp;{$vo.ttedu_sex}</em>
+            <i>&nbsp;{$vo.ttedu_nianjikemu}</i>
+            <b>&nbsp;{$vo.ttedu_laoshiyaoqiu}</b>
+            <em style="WIDTH: 18%">&nbsp;{$vo.ttedu_shoukediqu}</em>
+            <i>&nbsp;{$vo.ttedu_addtime|date='Y-m-d H:i:s',###} </i>
+            <em>&nbsp;<a title="{$vo.ttedu_nianjikemu}" href="__APP__/JiajiaoInfo/edu_infodetail/id/{$vo.ttedu_id}">查看详情</a></em></li>
+        </volist>
+      </ol>
+      <div class=num>
+        {$page}
+      </div>
+    </div>
+  </div>
+  <!--中部左区结束，右区开始-->
+  <div class=LleftM>
+
+    <include file="Public:right_info"/>
+  </div>
+  <!--主区结束，底区开始-->
+  <!--友情链接-->
+  <include file="Public:foot"/>

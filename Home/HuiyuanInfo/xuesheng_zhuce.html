@@ -1,0 +1,130 @@
+<!--头部部分-->
+<include file="Public:head"/>
+<load href="__PUBLIC__/Js/Jquery/jquery.js"/>
+<load href="__PUBLIC__/Js/Jquery/jquery.form.js"/>
+<script language="JavaScript">
+    <!--
+    $(function(){
+        $('#form1').ajaxForm({
+            beforeSubmit:  checkForm,  // pre-submit callback
+            success:       complete,  // post-submit callback
+            dataType: 'json'
+        });
+        function checkForm(){
+            if( '' == $.trim($('#newusername').val())){
+                $('#result').html('用户名不能为空').show();
+                return false;
+            }
+            //可以在此添加其它判断
+        }
+        function complete(data){
+            if (data.status==1)
+            {
+                $('#result').html(data.info).show();
+                // 更新列表
+                data = data.data;
+                var html =  '<div class="result" style=\'font-weight:normal;background:#A6FF4D\'><div style="border-bottom:1px dotted silver">'+data.title+'  ['+data.email+data.create_time+']</div><div class="content">'+data.content+'</div></div>';
+                $('#list').prepend(html);
+            }else{
+                $('#result').html(data.info).show();
+            }
+        }
+    });
+    function checkTitle(){
+        $.post('__URL__/checkuser',{'ttedu_username':$('#newusername').val()},function(data){
+            $('#result').html(data.info).show();
+        },'json');
+    }
+    //-->
+    function checkpass()
+    {
+        var psslen=document.getElementById('newuserpassword').value.length;
+        if(psslen<6)
+        {
+            //alert(document.getElementById('jieguo1').html);
+            // document.getElementById('jieguo1').innerText="密码长度小于了六位!";
+            $('#jieguo1').html('密码长度小于了六位!').show();
+        }
+        else if(psslen>10)
+        {
+            $('#jieguo1').html('密码长度大于于了十位!').show();
+        }
+        else
+        {
+            $('#jieguo1').html('密码长度适合!').show();
+        }
+    }
+</script>
+<div class="main mainbg clearfix">
+    <div class=PleftM>
+        <div class=rcur>
+            <p>
+                <strong>当前位置：</strong><a href="__APP__/index/index">首页</a>&gt; <strong class=red>会员注册</strong>
+            </p>
+        </div>
+        <div class="tit01 clearfix">
+            <div class=Ptit01T1>
+                <img src="Public/images/d10.gif"><span class=tttext>会员注册</span>
+            </div>
+            <div class=loginb5>
+                <fieldset>
+                    <form id=qingjiajiao onsubmit="return CheckValue(this)" name=qingjiajiao method=post action="__URL__/insert">
+                        <div class=btbg2>
+                            <img src="Public/images/d19.gif"><strong>请填写您的登录信息 </strong>
+                        </div>
+                        <div>
+                            <label for=confirm_password><strong class=red>*</strong>请输入新用户名</label>
+                            <input onblur="checkTitle()" id=newusername class=zcinput onchange="checkTitle()" onkeyup="value=value.replace(/[\W]/g, '')" maxlength=15 size=18 type=text name="ttedu_username">
+                            <span id=result class=zsbg>必须由英文字母或字母、数字组合组成</span>
+                        </div>
+                        <div>
+                            <label for=checkbox><strong class=red>*</strong>请输入您的密码</label><input id=newuserpassword class=zcinput maxlength=15 size=18 type=password name="ttedu_password" onblur="checkpass()" onchange="checkpass()"><span class=zsbg id="jieguo1">请不少于六位、不超过十位</span>
+                        </div>
+                        <div>
+                            <label for=confirm_password><strong class=red>*</strong>请重复输入密码</label>
+                            <input id=re_newuserpassword class=zcinput maxlength=15 size=18 type=password name="ttedu_password2">
+                        </div>
+                        <div class=btbg2>
+                            <img src="Public/images/d19.gif"><strong>请填写您的基本信息</strong>
+                        </div>
+                        <div>
+                            <label for=label>学生性别</label>
+                            <input value="男" type="radio" name="ttedu_sex"> 男 <input value="女" type="radio" name="ttedu_sex"> 女
+                        </div>
+                        <div>
+                            <label for=label>年龄</label><input type="text" name="ttedu_old" class="zcinput" size="5" value=""/>&nbsp;岁
+                        </div>
+                        <div>
+                            <label for=label>出生年月</label><input id=way1 class=zcinput size=30 name="ttedu_birth"></span>
+                        </div>
+                        <div>
+                            <label for=checkbox>固定电话</label><input id=contact_telephone class=zcinput maxlength=50 size=30 type=text name="ttedu_zuoji" value="">
+                        </div>
+                        <div>
+                            <label for=checkbox>移动电话</label><input id=contact_mobile class=zcinput maxlength=50 size=30 type=text name="ttedu_shouji" value="">
+                        </div>
+                        <div>
+                            <label for=checkbox>QQ号码</label><input id=contact_telephone class=zcinput maxlength=50 size=30 type=text name="ttedu_qq" value="">
+                        </div>
+                        <div>
+                            <label for=checkbox>email号码</label><input id=contact_telephone class=zcinput maxlength=50 size=30 type=text name="ttedu_email" value="">
+                        </div>
+                        <div class=ac>
+                            <input style="CURSOR: pointer" class=butblue value="　确 定　" type=submit name=submit1>
+                            <input style="CURSOR: pointer" class=butblue value=重　置 type=reset name=reset1>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <!--右区结束，左区开始-->
+    <div class=PrightM>
+        <div class=qqqjj>
+            <h3>1027405904</h3>
+        </div>
+        <include file="Public:right_info"/>
+    </div>
+    <!--主区结束，底区开始-->
+    <!--友情链接-->
+    <include file="Public:foot"/>

@@ -1,0 +1,282 @@
+<include file="Public:head2"/>
+<div class=zxtop>
+  <div class=PleftM>
+    <div class=rcur>
+      <p>
+        <strong>当前位置：</strong><a href="http://www.eduease.com/">首页</a> &gt; 查看 {$teach_info.ttedu_id} 号教员信息
+      </p>
+    </div>
+    <table class=mberTab cellspacing=1 cellpadding=1>
+      <tbody>
+      <tr>
+        <th colspan=4>
+          {$teach_info.ttedu_id} 号教员基本信息
+        </th>
+      </tr>
+      <tr>
+        <td width="119" align=right>
+          <strong>教员编号：</strong>
+        </td>
+        <td width="331" class=green>
+          {$teach_info.ttedu_id}
+        </td>
+        <td width="117" align=right>
+          <strong>姓名：</strong>
+        </td>
+        <td width="255" class=blue>
+          {$teach_info.ttedu_chenfu|msubstr=0,1,'utf-8',false}老师
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>性别：</strong>
+        </td>
+        <td>
+          {$teach_info.ttedu_sex}
+        </td>
+        <td align=right>
+          <strong>籍贯：</strong>
+        </td>
+        <td>
+          {$teach_info.ttedu_jiguan}
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>出生年月：</strong>
+        </td>
+        <td class=yel>
+          {$teach_info.ttedu_birth}
+        </td>
+        <td align=right>
+          <strong>高校：</strong>
+        </td>
+        <td>
+          <strong>清华大学</strong>
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>学历：</strong>
+        </td>
+        <td>
+          {$teach_info.ttedu_mqxueli}
+        </td>
+        <td align=right>
+          <strong>目前身份：</strong>
+        </td>
+        <td>
+          {$teach_info.ttedu_mqshengfei}
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>专业：</strong>
+        </td>
+        <td>
+          {$teach_info.ttedu_zhuanye}
+        </td>
+        <td align=right>
+          <strong>住址：</strong>
+        </td>
+        <td>
+          {$teach_info.ttedu_address}
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>注册时间：</strong>
+        </td>
+        <td class=yel>
+          {$teach_info.ttedu_zhucedate|date='Y-m-d H:i:s',###}
+        </td>
+        <td align=right>
+          <strong>认证情况：</strong>
+        </td>
+        <td>
+          <eq name="$teach_info.ttedu_shengheishifoutongguo" value="1">已通过审，</eq>
+          <neq name="$teach_info.ttedu_shengheishifoutongguo" value="1">未通过审核</neq>
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>最近登陆时间：</strong>
+        </td>
+        <td>
+          {$teach_info.ttedu_logindate|date='Y-m-d H:i:s',###}
+        </td>
+        <td align=right>
+          <strong>教员星级：</strong>
+        </td>
+        <td>
+          <eq name="teach_info.ttedu_shifoushengji" value="0">普通会员</eq>
+          <gt name="teach_info.ttedu_shifoushengji" value="0"><img src="Public/member/images/d15.gif"></gt>
+          <gt name="teach_info.ttedu_shifoushengji" value="1"><img src="Public/member/images/d15.gif"></gt>
+          <gt name="teach_info.ttedu_shifoushengji" value="2"><img src="Public/member/images/d15.gif"></gt>
+          <gt name="teach_info.ttedu_shifoushengji" value="3"><img src="Public/member/images/d15.gif"></gt>
+          <gt name="teach_info.ttedu_shifoushengji" value="4"><img src="Public/member/images/d15.gif"></gt>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class=mberlx>
+      <a class=yyjy href="__APP__/YuyueTeachInfo/yuyue_teach_info/teachid/{$teach_info.ttedu_id}">在线预约该教员</a>
+      (为保护教员隐私，具体面谈时会向您提供全名及各种证件）<br>
+      预约中心电话：<strong>{$web_info.ttedu_tel} </strong>（工作时间：<span class=blue>9:00－20:00</span>）（预约时，请提供此教员的编号：<strong class=red>{$teach_info.ttedu_id}</strong> ）
+    </div>
+    <table class=mberTab cellspacing=1 cellpadding=1>
+      <tbody>
+      <tr>
+        <th colspan=4>
+          家教信息
+        </th>
+      </tr>
+      <tr>
+        <td width="17%" align=right>
+          <strong>可教授科目：</strong>
+        </td>
+        <td class=nonutd colspan=3>
+          {$teach_info.ttedu_renjiaoxueke}
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>自我描述：</strong>
+        </td>
+        <td colspan=3>
+          {$teach_info.ttedu_xiangxijieshao}
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>所获证书：</strong>
+        </td>
+        <td colspan=3>
+          {$teach_info.ttedu_suohuozhengshu}
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>可授课区域：</strong>
+        </td>
+        <td class=yel width="40%">
+          {$teach_info.ttedu_jiajiaodiqu}
+        </td>
+        <td width="14%" align=right>
+          <strong>可辅导方式：</strong>
+        </td>
+        <td class=blue width="29%">
+          {$teach_info.ttedu_fudaofangshi}
+        </td>
+      </tr>
+      <tr>
+        <td align=right>
+          <strong>薪水要求：</strong>
+        </td>
+        <td colspan=1>
+          <span class=red>{$teach_info.ttedu_xingshuiyaoqiu}</span>
+        </td>
+        <td width="14%" align=right>
+          <strong>授课对象：</strong>
+        </td>
+        <td class=blue width="29%">
+          {$teach_info.ttedu_renjiaoduixiang}
+        </td>
+      </tr>
+      </tr>
+      </tbody>
+    </table>
+    <div class=mberlx>
+      <a class=yyjy href="__APP__/YuyueTeachInfo/yuyue_teach_info/teachid/{$teach_info.ttedu_id}">在线预约该教员</a>
+    </div>
+    </table>
+    <div class=tit01>
+      <div class=tit01TB1>
+        <h2>同类教员信息</h2>
+        <img src="Public/images/d10.gif">
+      </div>
+      <ol class=line02>
+        <li class=lin02bg><em>姓名</em><u>高校</u><u>专业</u><em>学历</em><em>时间</em></li>
+        <volist name="teach_more" id="vo">
+          <li><em><a href="__APP__/TeachInfo/tehdetail/id/{$vo.ttedu_id}">{$vo.ttedu_chenfu|msubstr=0,1,'utf-8',false}老师</a></em><u> {$vo.ttedu_biyexuexiao} </u><u>{$vo.ttedu_zhuanye}</u><em>{$vo.ttedu_mqxueli}</em><em>{$vo.ttedu_zhucedate|date='Y-m-d H:i:s',###}</em></li>
+        </volist>
+      </ol>
+    </div>
+  </div>
+  <div class=tright>
+    <div class=tit01>
+      <div class=zxtit01T2>
+        <h2><img src="Public/images/d03.gif">本站搜索</h2>
+      </div>
+      <div>
+        <div class=s01>
+          <form method=post action="__APP__/index/mfsearch">
+            <input type="hidden" name="types" value="5"/>
+            <input class=seainpu onclick="this.value=''" value="信息标题" size=10 type=text name="titles">
+            <select style="WIDTH: 95px" id=select3 class=input_text name="subject">
+              <option selected value="">所有文章</option>
+              <option value=15>新闻动态</option>
+              <option value=17>助教公告</option>
+              <option value=18>小学教育</option>
+              <option value=19>初中教育</option>
+              <option value=20>高中教育</option>
+              <option value=21>中考咨询</option>
+              <option value=22>高考咨询</option>
+              <option value=23>常见问题</option>
+              <option value=24>心灵沟通</option>
+              <option value=25>好书推荐</option>
+              <option value=26>家教之路</option>
+              <option value=27>其他咨询</option>
+            </select>
+            <span class=seacbg1><input id=imageField src="Public/images/but.gif" type=image name=imageField></span>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class=rightM1>
+      <div class=tit01T2>
+        <a href="__APP__/index/searchteach">-更多-</a><img src="Public/images/d17.gif">
+        <h2>星级教员 </h2>
+      </div>
+      <ul class=tit01T2B>
+        <li><a id=t_1 class=tit01T2Bc onmouseover=x:Hover(1); href="__APP__/index/searchteach/ttedu_renjiaoxueke/语文">语文家教</a></li>
+        <li><a id=t_2 onmouseover=i:Hover(2); href="__APP__/index/searchteach/ttedu_renjiaoxueke/数学">数学家教</a></li>
+        <li><a id=t_3 onmouseover=i:Hover(3); href="__APP__/index/searchteach/ttedu_renjiaoxueke/英语">英语家教</a></li>
+      </ul>
+      <ol style="DISPLAY: block" id=tbc1 class="line0r2 cle">
+        <volist name="yuwenjiaoshi" id="vo">
+          <li class=line0r2bg><a href="__APP__/TeachInfo/tehdetail/id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_chenfu|msubstr=0,1,'utf-8',false}老师 <span class=green>详细介绍</span>
+            <gt name="vo.ttedu_shifoushengji" value="0"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="1"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="2"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="3"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="4"><img src="Public/images/d18.gif"></gt>
+          </a></li>
+        </volist>
+      </ol>
+      <ol style="DISPLAY: none" id=tbc2 class="line0r2 cle">
+        <volist name="shuxuejiaoshi" id="vo">
+          <li class=line0r2bg><a href="__APP__/TeachInfo/tehdetail/id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_chenfu|msubstr=0,1,'utf-8',false}老师 <span class=green>详细介绍</span>
+            <gt name="vo.ttedu_shifoushengji" value="0"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="1"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="2"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="3"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="4"><img src="Public/images/d18.gif"></gt>
+          </a></li>
+        </volist>
+      </ol>
+      <ol style="DISPLAY: none" id=tbc3 class="line0r2 cle">
+        <volist name="yingyujiaoshi" id="vo">
+          <li><a href="__APP__/TeachInfo/tehdetail/id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_chenfu|msubstr=0,1,'utf-8',false}老师 <span class=green>详细介绍</span>
+            <gt name="vo.ttedu_shifoushengji" value="0"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="1"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="2"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="3"><img src="Public/images/d18.gif"></gt>
+            <gt name="vo.ttedu_shifoushengji" value="4"><img src="Public/images/d18.gif"></gt>
+          </a></li>
+        </volist>
+      </ol>
+    </div>
+    <include file="Public:right_info"/>
+  </div>
+  <include file="Public:foot"/>

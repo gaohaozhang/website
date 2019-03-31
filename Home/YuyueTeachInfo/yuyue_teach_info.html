@@ -1,0 +1,153 @@
+<!--头部部分-->
+<include file="Public:head"/>
+<div class="main mainbg clearfix">
+	<div class=PleftM>
+		<div class=rcur>
+			<p>
+				<strong>当前位置：</strong><a href="http://cq.eduease.com/">首页</a>&gt; <strong class=red>上海地区请家教</strong>
+			</p>
+		</div>
+		<div class="tit01 clearfix">
+			<div class=Ptit01T1>
+				<img src="Public/images/d10.gif"><span class=tttext>发布家教信息</span>
+			</div>
+			<div class=loginb5>
+				<fieldset>
+					<form id=qingjiajiao onsubmit="return CheckValue(this)" name=qingjiajiao method=post action="__URL__/insert">
+						<input type="hidden" name="ttedu_teach_id" value="{$teachid}"/>
+						<input type="hidden" name="ttedu_stuid" value="{$stuid}"/>
+						<div class=btbg2>
+							<img src="Public/images/d19.gif"><strong>请填写您的联系方式 </strong>
+						</div>
+						<div>
+							<label for=confirm_password>发布人称呼</label><input id=contact_name class=zcinput maxlength=15 size=30 type=text name="ttedu_lianxiren"><span class=zsbg>例如:王女士</span>
+						</div>
+						<div>
+							<label for=checkbox>固定电话</label><input id=contact_telephone class=zcinput maxlength=50 size=30 type=text name="ttedu_tel" value="{$member.ttedu_zuoji}"><span class=zsbg>可填多个，请注明(宅、办)</span>
+						</div>
+						<div>
+							<label for=checkbox>移动电话</label><input id=contact_mobile class=zcinput maxlength=50 size=30 type=text name="ttedu_mob" value="{$member.ttedu_shouji}"><span class=zsbg>便于短信通知。该信息不会在网上公布</span>
+						</div>
+						<div>
+							<label for=checkbox>QQ号码</label><input id=contact_telephone class=zcinput maxlength=50 size=30 type=text name=ttedu_qq value="{$member.ttedu_qq}">
+						</div>
+						<div>
+							<label for=checkbox>email号码</label><input id=contact_telephone class=zcinput maxlength=50 size=30 type=text name=ttedu_email value="{$member.ttedu_email}">
+						</div>
+						<div>
+							<label for=confirm_password>您所在的位置地区</label>
+							<select name="ttedu_weizhi" id="teach_place">
+								<option selected="selected" value="">请选择</option>
+								<option value=黄浦区>黄浦区</option>
+								<option value=徐汇区>徐汇区</option>
+								<option value=长宁区>长宁区</option>
+								<option value=静安区>静安区</option>
+								<option value=普陀区>普陀区</option>
+								<option value=虹口区>虹口区</option>
+								<option value=杨浦区>杨浦区</option>
+								<option value=闵行区>闵行区</option>
+								<option value=宝山区>宝山区</option>
+								<option value=嘉定区>嘉定区</option>
+								<option value=浦东新区>浦东新区</option>
+								<option value=金山区>金山区</option>
+								<option value=松江区>松江区</option>
+								<option value=青浦区>青浦区</option>
+								<option value=奉贤区>奉贤区</option>
+							</select>
+						</div>
+						<div>
+							<label for=label>家庭住址</label><input id=way1 class=zcinput size=35 name="ttedu_diqumiaoshu"></span><span class=zsbg>填写您家庭的消息地址</span>
+						</div>
+						<div class=btbg2>
+							<img src="Public/images/d19.gif"><strong>请填写学员的基本信息</strong>
+						</div>
+						<div>
+							<label for=label>学生性别</label>
+							<input value="男" type="radio" name="ttedu_sex" <eq name="member.ttedu_sex" value="男">checked</eq> > 男 <input value="女" type="radio" name="ttedu_sex" <neq name="member.ttedu_sex" value="男">checked</neq> > 女
+						</div>
+						<div>
+							<label for=label>学生年龄</label><input type="text" name="ttedu_old" class="zcinput" size="5" value="{$member.ttedu_old}"/>&nbsp;岁
+						</div>
+						<div>
+							<label for=label>求教学科</label><input id=teach_subject class=zcinput size=20 type=text name="ttedu_xueke"><span class=zsbg>例如:高三语文</span>
+						</div>
+						<div>
+							<label for=label>可上课时间</label><input id=teach_time class=zcinput size=20 type=text name="ttedu_shangkeshijian"><span class=zsbg>例如:每周六下午2点到4点</span>
+						</div>
+						<div>
+							<label for=label>学员情况描述</label><textarea id=teacher_request class=zcinput rows=5 cols=30 name="ttedu_xueyuanmiaoshu"></textarea>
+							<div class=btbg2>
+								<img src="Public/images/d19.gif"><strong>请填写您对教员的要求</strong>
+							</div>
+							<div>
+								<label for=label>对老师的要求</label><textarea id=teacher_request class=zcinput rows=5 cols=30 name="ttedu_jiaoshiyaoqiu"></textarea>
+								<span class=zsbg>如对教员的学历，教学经验，性格等要求</span>
+							</div>
+							<div>
+								<label for=label>薪资要求</label><input id=teach_time class=zcinput size=20 type=text name="ttedu_shoufeiyaoqiu"><span class=zsbg>例如:50元/小时</span>
+							</div>
+							<div>
+								<label for=label>备注</label><textarea id=teacher_request class=zcinput rows=5 cols=30 name="ttedu_beizhu"></textarea>
+							</div>
+							<div class=ac>
+								<input style="CURSOR: pointer" class=butblue value="　确 定　" type=submit name=submit1>
+								<input style="CURSOR: pointer" class=butblue value=重　置 type=reset name=reset1>
+							</div>
+					</form>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<!--右区结束，左区开始-->
+	<div class=PrightM>
+		<div class=qqqjj>
+			<h3>1027405904</h3>
+		</div>
+		<div class=tit01>
+			<div class=tit01T2>
+				<a href="http://news.eduease.com/zixun_list-id-2843.htm">-更多-</a><img class=imgtub src="Public/images/d15.gif"><span class=tttext>常见问题</span>
+			</div>
+			<ol class=Pline01>
+				<li>教学资源丰富，对教员严格把关</li>
+				<li>首推星级家教，服务最为规范</li>
+				<li>星级教员万里挑一，教学成功率高</li>
+				<li>1 万名本地专业教师，专业教师最多</li>
+				<li>7 万名教员自主挑选，重庆师资最强</li>
+			</ol>
+		</div>
+		<div class=tit01>
+			<div class=tit01T2>
+				<a href="http://news.eduease.com/zixun_list-id-2843.htm">-更多-</a><img src="Public/images/d11.gif"><span class=tttext>心灵沟通</span>
+			</div>
+			<ol class=Pline01>
+				<li><a href="http://cq.eduease.com/qingjiajiao/qlc.php">请家教服务流程</a></li>
+				<li><a href="http://cq.eduease.com/qingjiajiao/shoufei.php">家教收费标准</a></li>
+				<li><a href="http://cq.eduease.com/qingjiajiao/howq.php">怎样快速找到老师</a></li>
+				<li><a href="http://cq.eduease.com/qingjiajiao/int.php">星级教员介绍</a></li>
+			</ol>
+		</div>
+		<div class=tit01>
+			<div class=tit01T2>
+				<a href="http://news.eduease.com/zixun_list-id-2843.htm">-更多-</a><img class=imgtub src="Public/images/d20.gif"><span class=tttext>家教之路</span>
+			</div>
+			<ol class=Pline01>
+				<li><a href="http://news.eduease.com/zixun_info-id-8976.htm" target=_blank>为什么要给孩子请家教及对请家教的看法</a></li>
+				<li><a href="http://news.eduease.com/zixun_info-id-8975.htm" target=_blank>给孩子请家教的四点好处</a></li>
+				<li><a href="http://news.eduease.com/zixun_info-id-8847.htm" target=_blank>什么样的孩子需要请家教？</a></li>
+				<li><a href="http://news.eduease.com/zixun_info-id-8846.htm" target=_blank>请家教前家长应做以下几点准备</a></li>
+			</ol>
+		</div>
+	</div>
+</div>
+<!-- 第一步结束 第二步开始-->
+<!--主区结束，底区开始-->
+<!--友情链接-->
+<div class=ljmain>
+	<div class=ljnr>
+	</div>
+	<div class=ljnr>
+		<span class=red>[推荐站点]：</span><a href="http://cq.eduease.com/jiaoyuan-t-0.htm" target=_blank>重庆数学家教</a><a href="http://cq.eduease.com/jiaoyuan-t-1.htm" target=_blank>重庆英语家教</a><a href="http://cq.eduease.com/jiaoyuan-t-2.htm" target=_blank>重庆语文家教</a><a href="http://cq.eduease.com/jiaoyuan-t-10.htm" target=_blank>重庆奥数家教</a><a href="http://cq.eduease.com/jiaoyuan-t-29.htm" target=_blank>重庆高中家教</a><a href="http://cq.eduease.com/jiaoyuan-t-28.htm" target=_blank>重庆初中家教</a><a href="http://cq.eduease.com/jiaoyuan-t-27.htm" target=_blank>重庆小学家教</a><a href="http://cq.eduease.com/jiaoyuan-t-26.htm" target=_blank>重庆幼儿家教</a><a href="http://cq.eduease.com/jiaoyuan-j-m.htm" target=_blank>重庆音乐家教</a><a href="http://cq.eduease.com/jiaoyuan-t-11.htm" target=_blank>重庆钢琴家教</a><a href="http://cq.eduease.com/jiaoyuan-k-all.htm" target=_blank>重庆家教科目详细分类</a>
+	</div>
+</div>
+<!--主区结束，底区开始-->
+<include file="Public:foot"/>

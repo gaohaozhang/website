@@ -1,0 +1,214 @@
+<include file="Public:head2"/>
+<link rel=stylesheet type=text/css href="Public/css/neweduee.css">
+<script language=javascript>
+    //all by www.qpsh.com
+    var currslid = 0;
+    var slidint;
+    function setfoc(id){
+        document.getElementById("focpic").src = picarry[id];
+        document.getElementById("foclnk").href = lnkarry[id];
+        document.getElementById("fttltxt").innerHTML = '<a href="'+lnkarry[id]+'" target="_blank">'+ttlarry[id]+'</a>';
+        currslid = id;
+        for(i=0;i<4;i++){
+            document.getElementById("tmb"+i).className = "thubpic";
+        };
+        document.getElementById("tmb"+id).className ="thubpiccur";
+        focpic.style.visibility = "hidden";
+        focpic.filters[0].Apply();
+        if (focpic.style.visibility == "visible") {
+            focpic.style.visibility = "hidden";
+            focpic.filters.revealTrans.transition=23;
+        }
+        else {
+            focpic.style.visibility = "visible";
+            focpic.filters[0].transition=23;
+        }
+        focpic.filters[0].Play();
+        stopit();
+    }
+    function playnext(){
+        if(currslid==3){
+            currslid = 0;
+        }
+        else{
+            currslid++;
+        };
+        setfoc(currslid);
+        playit();
+    }
+    function playit(){
+        slidint = setTimeout(playnext,4500);
+    }
+    function stopit(){
+        clearTimeout(slidint);
+    }
+    window.onload = function(){
+        playit();
+    }
+    function g(o){return document.getElementById(o);}
+    function Hover(n){
+//如果有N个标签,就将i<=N;
+        for(var i=1;i<=3;i++)
+        {
+            g('t_'+i).className='zxbg1';
+            g('tbc'+i).style.display='none';
+        }
+        g('tbc'+n).style.display='block';
+        g('t_'+n).className='zxbg2';
+    }
+</script>
+<div class=zxtop>
+  <div class=zxleft>
+    <div class=zxt02>
+      <h2><a href="__APP__/InfoDetail/infolist/ttedu_id/26">家<br>
+        <br>
+        <br>
+        教<br>
+        <br>
+        <br>
+        之<br>
+        <br>
+        <br>
+        路</a></h2>
+    </div>
+    <ul class=zxline01>
+      <volist name="jiajiaozhilu" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ul>
+  </div>
+  <div class=zxbr style="float:left; height:368px">
+    <img src="Public/images/4.jpg" width="210" height="118">
+    <div style="height:20px">
+    </div>
+    <div class=zxt06x>
+      <a href="__APP__/InfoDetail/infolist/ttedu_id/15">-更多-</a>
+      <h2>教育新闻动态</h2>
+    </div>
+    <ol class=line01>
+      <volist name="xinwendongtai" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ol>
+  </div>
+  <div class=zxmid style="height:180px;">
+    <div class=zxt01>
+      <a href="__APP__/InfoDetail/infolist/ttedu_id/17">-更多-</a>
+      <h2 class=white>助教公告</h2>
+    </div>
+    <ul class=zxline>
+      <volist name="zhujiaogonggao" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}<php> echo substr('123456789',0,4); </php></a></li>
+      </volist>
+    </ul>
+  </div>
+  <div>
+    <ul class=zxt03>
+      <li id=t_1 class=zxbg2 onmouseover=x:Hover(1);>
+        <h2><a href="__APP__/InfoDetail/infolist/ttedu_id/18">小学教育</a></h2>
+      </li>
+      <li id=t_2 class=zxbg1 onmouseover=i:Hover(2);>
+        <h2><a href="__APP__/InfoDetail/infolist/ttedu_id/19">初中教育</a></h2>
+      </li>
+      <li id=t_3 class=zxbg1 onmouseover=i:Hover(3);>
+        <h2><a href="__APP__/InfoDetail/infolist/ttedu_id/20">高中教育</a></h2>
+      </li>
+    </ul>
+    <ol style="DISPLAY: block" id=tbc1 class="zxl fl">
+      <volist name="xiaoxuejiaoyu" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ol>
+    <ol style="DISPLAY: none" id=tbc2 class="zxl fl">
+      <volist name="chuzhongjiaoyu" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ol>
+    <ol style="DISPLAY: none" id=tbc3 class="zxl fl">
+      <volist name="gaozhongjiaoyu" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ol>
+  </div>
+</div>
+</div>
+<div class=main>
+  <img src="Public/images/banner.jpg" width=949 height=80>
+</div>
+<div class=main>
+  <div class=zxbl>
+    <div class=zxblt>
+      <div class=zxt04>
+        <a href="__APP__/InfoDetail/infolist/ttedu_id/21">-更多-</a>
+        <h2>中考资讯</h2>
+      </div>
+      <ol class=line01>
+        <volist name="zhongkaozixun" id="vo">
+          <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+        </volist>
+      </ol>
+      <div class=Rtu>
+        <img src="Public/images/new_3.gif">
+      </div>
+    </div>
+    <div class=zxt05>
+      <a href="__APP__/InfoDetail/infolist/ttedu_id/22">-更多-</a>
+      <h2>高考资讯</h2>
+    </div>
+    <ol class=line01>
+      <volist name="gaokaozixun" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ol>
+    <div class=Rtu>
+      <img src="Public/images/new_4.gif">
+    </div>
+    <div class=zxblt>
+      <div class=zxt04>
+        <a href="__APP__/InfoDetail/infolist/ttedu_id/23">-更多-</a>
+        <h2>常见问题</h2>
+      </div>
+      <ol class=line01>
+        <volist name="changjianwenti" id="vo">
+          <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+        </volist>
+      </ol>
+      <div class=Rtu>
+        <img src="Public/images/new_1.gif">
+      </div>
+    </div>
+    <div class=zxt05>
+      <a href="__APP__/InfoDetail/infolist/ttedu_id/24">-更多-</a>
+      <h2>心灵沟通</h2>
+    </div>
+    <ol class=line01>
+      <volist name="xinlingoutong" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ol>
+    <div class=Rtu>
+      <img src="Public/images/new_2.gif">
+    </div>
+  </div>
+  <div class=zxbr>
+    <div class=zxt06>
+      <a href="__APP__/InfoDetail/infolist/ttedu_id/25">-更多-</a>
+      <h2>好书推荐</h2>
+    </div>
+    <ol class=line01>
+      <volist name="haoshutuijian" id="vo">
+        <li><a href="__APP__/InfoDetail/infodetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+      </volist>
+    </ol>
+  </div>
+</div>
+<!--友情链接-->
+<!--友情链接-->
+<div class=ljmain>
+  <div class=ljnr>
+  </div>
+  <div class=ljnr>
+  </div>
+</div>
+<!--主区结束，底区开始-->
+<include file="Public:foot"/>

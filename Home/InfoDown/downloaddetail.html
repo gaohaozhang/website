@@ -1,0 +1,84 @@
+<include file="Public:head2"/>
+<div class="main mainbg clearfix">
+    <div class=PleftM>
+        <div class=rcur>
+            <p>
+                <strong>当前位置：</strong>
+                <a href="__APP__/index/index">首页</a>&gt; <a href="__URL__/downloadlist/ttedu_btype_id/{$btype_down.ttedu_id}">{$btype_down.ttedu_btype_name}</a> &gt; <strong>{$info_down.ttedu_title}</strong>
+            </p>
+        </div>
+        <div class=tit01>
+            <div id=cont style="height:470px;">
+                <h1>{$info_down.ttedu_title}</h1>
+                <div style="border-bottom:1px solid #cccccc; text-align:center;">
+					<span>下载权限：<eq name="info_down.ttedu _shifouzhuce" value="0">所有用户 <else/><font color="#006600">注册用户</font></eq>
+					</span>
+                    <span>上传时间：{$info_down.ttedu_sgdate||date='Y-m-d H:i:s',###}</span>
+                    <span style="margin-left:30px;"><eq name="$info_down.ttedu _shifouzhuce" value="1">你不是注册用户，你不能下载 </eq><a href="Public/Uploads/{$info_down.ttedu_fujian}" style="color:#ff0000">下载资源</a></span>
+                </div>
+                <br/>
+                <div>
+                    <p>
+                        资源介绍：
+                    </p>
+                    <br/>
+                    {$info_down.ttedu_content}
+                </div>
+                <div class=hackbox>
+                </div>
+            </div>
+            <div class=tit01>
+                <div class=zxtit01T3>
+                    <img src="Public/images/d10.gif">
+                    <h2>相关文章</h2>
+                </div>
+                <ol style="WIDTH: 80%" class="line01 fl">
+                    <volist name="info_detail_other" id="vo">
+                        <li><span class=green>-{$vo.ttedu_sgdate|date='Y-m-d',###}-</span><a href="__URL__/downloaddetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+                    </volist>
+                </ol>
+                <div class=hackbox>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--中部左区结束，右区开始-->
+    <div class=PrightM>
+        <div class=tit01>
+            <div>
+                <div class=tit01>
+                    <div class=zxtit01T2>
+                        <h2><img src="Public/images/d03.gif">本站搜索</h2>
+                    </div>
+                    <div>
+                        <div class=s01>
+                            <form method=post action="__APP__/index/mfsearch">
+                                <input type="hidden" name="types" value="5"/>
+                                <input class=seainpu onclick="this.value=''" value="信息标题" size=10 type=text name="titles">
+                                <select style="WIDTH: 95px" id=select3 class=input_text name="subject">
+                                    <option selected value="">所有文章</option>
+                                    <option value=15>新闻动态</option>
+                                    <option value=17>助教公告</option>
+                                    <option value=18>小学教育</option>
+                                    <option value=19>初中教育</option>
+                                    <option value=20>高中教育</option>
+                                    <option value=21>中考咨询</option>
+                                    <option value=22>高考咨询</option>
+                                    <option value=23>常见问题</option>
+                                    <option value=24>心灵沟通</option>
+                                    <option value=25>好书推荐</option>
+                                    <option value=26>家教之路</option>
+                                    <option value=27>其他咨询</option>
+                                </select>
+                                <span class=seacbg1><input id=imageField src="Public/images/but.gif" type=image name=imageField></span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public:right_info"/>
+    </div>
+    <!--主区结束，底区开始-->
+    <!--友情链接-->
+    <include file="Public:foot"/>

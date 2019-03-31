@@ -1,0 +1,80 @@
+<include file="Public:head2"/>
+<div class="main mainbg clearfix">
+	<div class=PleftM>
+		<div class=rcur>
+			<p>
+				<strong>当前位置：</strong><a href="__APP__/index/index">首页</a>&gt;<strong>资料下载列表</strong>
+			</p>
+		</div>
+		<div class=tit01>
+			<div class=Ptit01T1>
+				<img src="Public/images/d10.gif">
+				<h2><strong>资料下载列表</strong></h2>
+			</div>
+			<table border=0 cellspacing=0 cellpadding=0 width="100%" align=center>
+				<tr>
+					<td>
+						&nbsp;
+					</td>
+				</tr>
+				<tr class=BGWhite valign=top>
+					<td align=middle>
+						<volist name="btype_down" id="vo">
+							&nbsp; <a href="__URL__/downloadlist/ttedu_btype_id/{$vo.ttedu_id}" style="color:#006600;">
+							<eq name="vo.ttedu_id" value="$ttedu_btype_id"><font color="#FF0000">{$vo.ttedu_btype_name}</font><else/>{$vo.ttedu_btype_name}</eq></a>&nbsp; </volist>
+					</td>
+				</tr>
+				<tr>
+					<td class=WordRed80S width="90%" align=middle>
+						－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<ol class=Pline02>
+				<volist name="info_down" id="vo">
+					<li><span class=green>-{$vo.ttedu_sgdate|date='Y-m-d',###}-</span><a href="__URL__/downloaddetail/ttedu_id/{$vo.ttedu_id}" target=_blank>{$vo.ttedu_title}</a></li>
+				</volist>
+			</ol>
+			<br>
+			<div class=num>
+				{$page}
+			</div>
+		</div>
+	</div>
+	<!--中部左区结束，右区开始-->
+	<div class=PrightM>
+		<div class=tit01>
+			<div class=zxtit01T2>
+				<h2><img src="Public/images/d03.gif">本站搜索</h2>
+			</div>
+			<div>
+				<div class=s01>
+					<form method=post action="__APP__/index/mfsearch">
+						<input type="hidden" name="types" value="5"/>
+						<input class=seainpu onclick="this.value=''" value="信息标题" size=10 type=text name="titles">
+						<select style="WIDTH: 95px" id=select3 class=input_text name="subject">
+							<option selected value="">所有文章</option>
+							<option value=15>新闻动态</option>
+							<option value=17>助教公告</option>
+							<option value=18>小学教育</option>
+							<option value=19>初中教育</option>
+							<option value=20>高中教育</option>
+							<option value=21>中考咨询</option>
+							<option value=22>高考咨询</option>
+							<option value=23>常见问题</option>
+							<option value=24>心灵沟通</option>
+							<option value=25>好书推荐</option>
+							<option value=26>家教之路</option>
+							<option value=27>其他咨询</option>
+						</select>
+						<span class=seacbg1><input id=imageField src="Public/images/but.gif" type=image name=imageField></span>
+					</form>
+				</div>
+			</div>
+		</div>
+		<include file="Public:right_info"/>
+	</div>
+	<!--主区结束，底区开始-->
+	<!--友情链接-->
+	<include file="Public:foot"/>

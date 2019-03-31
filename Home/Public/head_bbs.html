@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{$set_web_info.ttedu_titlename} | {$web_title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name=keywords content="{$set_web_info.ttedu_keyword} | {$web_title}">
+    <meta name=description content="{$set_web_info.ttedu_description} | {$web_title}">
+    <meta name=author content=家教在线>
+    <meta name=copyright content=家教在线>
+    <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <meta name=GENERATOR content="MSHTML 8.00.6001.19088">
+</head>
+<body>
+<div id=hd>
+    <div class=logo>
+        <a href="__URL__/index"><img border=0 src="Public/images/l.gif" width=125 height=38></a>
+    </div>
+    <div class=sel>
+        <form id=sel method=post name=sel action="__URL__/search_info">
+            <input size=50 name="ttedu_shequ_title">
+            <input value="搜索帖子" type=submit name=Submit><br>
+            &nbsp;
+        </form>
+    </div>
+    <div class=login>
+        <eq name="Think.session.username" value="">
+            <a href="__APP__/index/index">登录</a> | <else/>
+            <div>
+                <span style="color:#0000ff">{$Think.session.username}</span>&nbsp;您好！欢迎你回来！&nbsp; <a href="__APP__/member/index" style="color:#00ff00">个人中心</a>&nbsp; <a href="__APP__/Login/logout" style="color:#FF0000">退出登录</a>&nbsp;
+            </div>
+        </eq>
+        <a class=red href="__APP__/TeachInfo/zuo_edu">教员注册</a> &nbsp; | <a class=red href="__APP__/HuiyuanInfo/xuesheng_zhuce">学生注册</a>&nbsp; <a href="__APP__/index/index">家教在线首页</a>
+    </div>
+</div>
